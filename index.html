@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Responsive Web Design</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="bootstrap.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.test {
+  background-color: rgb(77, 61, 61);
+}
+
+@media only screen and (max-width: 5000px) and (min-width: 768px) {
+  .w3-right {
+ margin-left: 30%;
+  }
+}
+.mySlides {
+  display: none;
+  height: 100%;
+  /* z-index: 999; */
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  display: none;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#scrollTopBtn:hover {
+  background-color: #333;
+}
+
+.w3-bar-item {
+  padding: 16px;
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 600px) {
+  .w3-bar .w3-bar-item {
+    display: block;
+    text-align: left;
+    padding: 12px;
+  }
+
+  .w3-top .w3-bar-item {
+    display: block;
+    text-align: left;
+    padding: 12px;
+  }
+
+  .w3-bar .w3-dropdown-hover .w3-button {
+    display: block;
+    text-align: left;
+  }
+}
+
+/* Responsive Slides */
+@media screen and (max-width: 768px) {
+  .mySlides img {
+    height: 60vh;
+  }
+
+  .w3-display-bottommiddle {
+    margin-bottom: 20%;
+  }
+
+  .w3-container .w3-padding-64 {
+    padding: 32px 16px;
+  }
+
+  .w3-row-padding {
+    padding: 8px 0;
+  }
+}
+
+/* Responsive Cards */
+@media screen and (max-width: 992px) {
+  .w3-third {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card nav" style="height: 80px; display: flex;align-items: center;justify-content: space-between;">
+      <!-- Logo on the left side -->
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-left">
+        <img src="2a9be9141a1e4c177adf8b01decdd9a5-removebg-preview.png" class="img1" width="80px" height="60px" alt="">
+      </a>
+      
+      <!-- Toggle button for small screens -->
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      
+      <!-- Navbar links shifted to the right -->
+      <div class="w3-right">
+        <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a> -->
+        <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOME</a>
+
+        <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+        <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LEATHER</a>
+        <a href="#belt" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BELT</a>
+        <a href="#bag" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAG</a>
+        <a href="#fwear" class="w3-bar-item w3-button w3-padding-large w3-hide-small">FOOTWEAR</a>
+
+
+
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+        
+        <!-- Dropdown -->
+        <div class="w3-dropdown-hover w3-hide-small">
+          <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">Merchandise</a>
+            <a href="#" class="w3-bar-item w3-button">Extras</a>
+            <a href="#" class="w3-bar-item w3-button">Media</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:80px">
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT US</a>
+  <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LEATHER</a>
+  <a href="#belt" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BELT</a>
+  <a href="#bag" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAG</a>
+  <a href="#fwear" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">FOOTWEAR</a>
+
+
+
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:100%;margin-top:46px; height: 100vh;">
+
+  <!-- Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center">
+    <img src="pexels-solliefoto-298863.jpg" style="width:100%; height: 100vh; object-fit: cover;">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small"   style="margin-bottom: 16%;">
+
+    <h3>Luxurious Leather Bag</h3>
+    <p><b>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, harum </b></p>   
+
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="photo-1689844496310-b261f7602bc2.jfif" style="width:100%; height: 100vh; object-fit: cover;">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small"  style="margin-bottom: 16%;">
+        <h3>Luxurious Leather Bag</h3>
+        <p><b>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, harum </b></p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="pexels-goumbik-292998.jpg" style="width:100%; height: 100vh; object-fit: cover;">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small" style="margin-bottom: 16%;">
+        <h3>Luxurious Leather Bag</h3>
+        <p><b>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, harum </b></p>     
+    </div>
+  </div>
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64 " style="max-width:1024px" id="band">
+    <h2 class="w3-wide">What We Do</h2>
+    <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-third">
+        <p>Name</p>
+        <img src="istockphoto-596080538-612x612.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:90%">
+      </div>
+      <div class="w3-third">
+        <p>Name</p>
+        <img src="istockphoto-596080538-612x612.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:90%">
+      </div>
+      <div class="w3-third">
+        <p>Name</p>
+        <img src="istockphoto-596080538-612x612.jpg" class="w3-round" alt="Random Name" style="width:90%">
+      </div>
+    </div>
+  </div>
+
+  <!-- The Product Section -->
+  <div class="w3-black" id="tour">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1024px">
+      <h2 class="w3-wide w3-center">LEATHER</h2>
+
+      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+        <div class="w3-third w3-margin-bottom card1">
+          <img src="marissa-grootes-D4jRahaUaIc-unsplash.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+        </div>
+  
+        <div class="w3-third w3-margin-bottom card2">
+          <img src="marissa-grootes-D4jRahaUaIc-unsplash.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+        </div>
+  
+        <div class="w3-third w3-margin-bottom card3">
+          <img src="marissa-grootes-D4jRahaUaIc-unsplash.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div  id="belt">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1024px">
+      <h2 class="w3-wide w3-center">BELT</h2>
+
+      <div class="w3-row-padding w3-padding-32 fbelt" style="margin:0 -16px">
+        <div class="w3-third w3-margin-bottom">
+          <img src="siep-van-groningen-qUJxJORcELQ-unsplash.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+        </div>
+  
+        <div class="w3-third w3-margin-bottom">
+          <img src="jeff-trierweiler-yrINjq6HInM-unsplash.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+        </div>
+  
+        <div class="w3-third w3-margin-bottom">
+          <img src="gabrielle-henderson-nUKN8Zat5dA-unsplash.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w3-black" id="bag">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1024px">
+      <h2 class="w3-wide w3-center">BAG</h2>
+
+      <div class="w3-row-padding w3-padding-32 abag" style="margin:0 -16px">
+        <div class="w3-third w3-margin-bottom">
+          <img src="premium_photo-1671028547420-a541b5a1243e.jfif" alt="New York" style="width:100%" class="w3-hover-opacity">
+        </div>
+  
+        <div class="w3-third w3-margin-bottom">
+          <img src="premium_photo-1671028547420-a541b5a1243e.jfif" alt="Paris" style="width:100%" class="w3-hover-opacity">
+        </div>
+  
+        <div class="w3-third w3-margin-bottom">
+          <img src="premium_photo-1671028547420-a541b5a1243e.jfif" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Contact Section -->
+  <div class="w3-container w3-content w3-padding-64 fcontact" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">CONTACT</h2>
+ 
+    <div class="w3-row w3-padding-32">
+
+                             <div class="w3-col m6 w3-large w3-margin-bottom">
+                                <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
+                                <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+                                <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+                            </div>
+                            <div class="w3-col m6">
+                                <form action="/action_page.php" target="_blank">
+                                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                                    <div class="w3-half">
+                                    <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                                    </div>
+                                    <div class="w3-half">
+                                    <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                                    </div>
+                                </div>
+                                <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                                <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                                </form>
+                            </div>
+ 
+    </div>
+  </div>
+
+
+
+ 
+<div class="w3-black footer">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1024px"> 
+
+        <div class="row" style="text-align: center;">
+            <div class="col-lg-12 col-md-12 col-sm-12">  
+                <div class="col-sm-3 fanimate">
+                  
+             
+                    <h4>COMPANY NAME</h4>
+                   <span> <p>About the company, little description will goes here..</p>
+                   </span>
+
+                </div>
+                <div class="col-sm-3 fanimate">
+               
+                    <h4>Quick Links</h4>
+                  <span>  <p>Top Leaders <br> Quick Links</p></span>
+                
+
+                </div>
+                <div class="col-sm-3 fanimate">
+                    
+                      <h4>Follow up</h4>
+                    
+
+
+<span>
+  <a href="#"> <i class="fa fa-facebook" style="font-size:30px; color: blue; background-color:white; padding: 6px 15px; border-radius: 12%; "> </i> </a> 
+  <a href="#"> <i class="fa fa-twitter" style="font-size:30px; color: skyblue; background-color:white; padding: 6px 15px; border-radius: 12%; "> </i> </a>
+  <a href="#"> <i class="fa fa-youtube" style="font-size:30px; color:red; background-color:white; padding: 6px 15px; border-radius: 12%; "> </i> </a>
+
+</span>
+                </div>
+           
+                  <div class="col-sm-3 fanimate">
+                    <h4>Contact Us</h4>
+                </div>
+            
+            </div>    
+           
+        </div>
+    </div>
+</div>
+
+</div>
+   
+
+
+
+           
+
+
+
+
+
+<script>
+
+$(document).ready(function() {
+  $(window).scroll(function() {
+    if ($(document).scrollTop() > 50) {
+      $("w3-top").addClass("test");
+    } else {
+      $("w3-top").removeClass("test");
+    }
+  });
+});
+
+
+var tl = gsap.timeline();
+var animationname = ".img1";
+var animename = ".w3-right a";
+animate (animationname);
+
+animate (animename);
+
+
+function animate (classorid)
+{
+  tl.from(classorid ,{
+      opacity: 0,
+      y: -100,
+      duration: 1.5,
+      stagger:0.5
+  })
+}
+
+
+gsap.from("#band",{
+  opacity: 0,
+  transform: "translateY(75%)",
+  scrollTrigger:{
+    trigger: ".w3-content",
+    start: "bottom 75%",
+    end: "bottom 75%",
+    // markers:true,
+    scrub: 5
+  }
+});
+
+gsap.from(".card1",{
+  opacity: 0,
+  transform: "translateX(-100%)",
+  // duration: 2,
+  scrollTrigger:{
+    trigger: "#tour",
+    start: "top 50%",
+    end: "top 50%",
+    // markers:true,
+    scrub: 5
+  }
+});
+
+gsap.from(".card3",{
+  opacity: 0,
+  transform: "translateX(-100%)",
+  // duration: 2,
+  scrollTrigger:{
+    trigger: "#tour",
+    start: "top 50%",
+    end: "top 50%",
+    // markers:true,
+    scrub: 5
+  }
+});
+
+gsap.from(".card2",{
+  opacity: 0,
+  transform: "translateY(300%)",
+  // duration: 2,
+  scrollTrigger:{
+    trigger: "#tour",
+    start: "top 50%",
+    end: "top 50%",
+    // markers:true,
+    scrub: 5
+  }
+});
+
+gsap.from(".animate h3,p ",{
+    opacity:0,
+    duration: 3,
+    // color:"red",
+    y:30,
+    delay:1,
+    stagger:0.5
+});
+
+gsap.from(".card4",{
+  opacity: 0,
+  transform: "translateY(100%)",
+  duration: 2,
+  // delay:1,
+  scrollTrigger:{
+    trigger: "#belt",
+    start: "top 60%",
+    end: "top 50%",
+    // markers:true,
+    stagger:1
+  }
+});
+
+gsap.from(".card5",{
+  opacity: 0,
+  transform: "translateY(100%)",
+  duration: 2,
+  // delay:1,
+  scrollTrigger:{
+    trigger: "#belt",
+    start: "top 60%",
+    end: "top 50%",
+    // markers:true,
+    stagger:1
+  }
+});
+
+gsap.from(".card6",{
+  opacity: 0,
+  transform: "translateY(100%)",
+  duration: 2,
+  // delay:1,
+  scrollTrigger:{
+    trigger: "#belt",
+    start: "top 60%",
+    end: "top 50%",
+    // markers:true,
+    stagger:1
+  }
+});
+
+
+
+gsap.from(".fanimate h4, span",{
+  opacity: 0,
+  transform: "translateY(100%)",
+  duration:3,
+  stagger:0.75,
+  scrollTrigger:{
+    trigger: ".footer",
+    start: "top 80%",
+    end: "top 70%",
+    // markers:true,
+    scrub: 2
+  }
+});
+
+gsap.from(".fcontact ",{
+  opacity: 0,
+  transform: "translateY(-50%)",
+  duration:2,
+  // stagger:0.75,
+  scrollTrigger:{
+    trigger: "#contact",
+    start: "top 50%",
+    end: "top 30%",
+    // markers:true,
+    scrub: 2
+  }
+});
+
+gsap.from(".fbelt img ",{
+  opacity: 0,
+  transform: "translateY(50%)",
+  duration:3,
+  stagger:0.75,
+
+  
+  scrollTrigger:{
+    trigger: "#belt",
+    start: "top 50%",
+    end: "top 30%",
+    // markers:true,
+    scrub: 2,
+
+
+  }
+});
+
+gsap.from(".abag img ",{
+  opacity: 0,
+  transform: "translateX(-50%)",
+  duration:2,
+  stagger:0.75,
+
+  
+  scrollTrigger:{
+    trigger: "#bag",
+    start: "top 50%",
+    end: "top 30%",
+    // markers:true,
+    scrub: 2,
+
+
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000);
+}
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "block";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {
+  scrollFunction();
+  var fadeElements = document.querySelectorAll('.fade-up');
+  fadeElements.forEach(function(element) {
+    var rect = element.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= window.innerHeight * 0.25) {
+      element.style.opacity = 1;
+      element.style.transform = 'translateY(0)';
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  var fadeElements = document.querySelectorAll('.fade-up');
+  fadeElements.forEach(function(element) {
+    element.style.opacity = 0;
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+  });
+});
+
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+
+
+
+
+</script
+
+</body>
+</html>
