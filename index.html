@@ -10,11 +10,11 @@
 <link rel="stylesheet" href="bootstrap.css">
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <style>
 body {
   font-family: "Lato", sans-serif;
@@ -31,6 +31,12 @@ body {
 @media only screen and (max-width: 5000px) and (min-width: 768px) {
   .w3-right {
  margin-left: 30%;
+  }
+}
+
+@media only screen and (min-width: 1px) and (max-width: 767px) {
+  .toggle {
+ margin-left: 36%;
   }
 }
 .mySlides {
@@ -109,6 +115,168 @@ body {
   }
 }
 
+.footer i {
+  font-size: 30px;
+  background-color: white;
+  padding: 6px 15px;
+  border-radius: 12%;
+}
+.fa-facebook { color: blue; }
+.fa-twitter { color: skyblue; }
+.fa-youtube { color: red; }
+
+.card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+                .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+.card-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+
+
+
+
+        .card:hover .card-content {
+            transform: translateY(0);
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .card-content p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .add-to-cart {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #218838;
+        }
+
+
+          /* Modal Styles */
+          .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1001; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            text-align: right;
+            padding-top: 10px;
+        }
+
+
+        @media only screen and (max-width: 990px) and (min-width: 768px) {
+    /* Your CSS styles here */
+    .card{
+          width: 85%;
+          margin-left: 10%;
+          margin-bottom: 4%;
+    }
+}
+
+
+@media only screen and (max-width: 767px) and (min-width: 0px) {
+    /* Your CSS styles here */
+    .card{
+          width: 80%;
+          margin-left: 10%;
+          margin-bottom: 4%;
+    }
+}
 
 
 
@@ -126,7 +294,7 @@ body {
       </a>
       
       <!-- Toggle button for small screens -->
-      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right toggle" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
         <i class="fa fa-bars"></i>
       </a>
       
@@ -146,13 +314,16 @@ body {
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
         
         <!-- Dropdown -->
-        <div class="w3-dropdown-hover w3-hide-small">
-          <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-hover w3-hide-small cart">
+         
+          
+         <button class="w3-padding-large w3-button" title="More"> <span class="cart-icon">🛒</span> <span class="cart-count">0</span></button>
+          <!-- <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
           <div class="w3-dropdown-content w3-bar-block w3-card-4">
             <a href="#" class="w3-bar-item w3-button">Merchandise</a>
             <a href="#" class="w3-bar-item w3-button">Extras</a>
             <a href="#" class="w3-bar-item w3-button">Media</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -172,7 +343,7 @@ body {
 
 
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()"><span class="cart-icon">🛒</span> <span class="cart-count">0</span></a>
 </div>
 
 <!-- Page content -->
@@ -229,7 +400,7 @@ body {
     <div class="w3-container w3-content w3-padding-64" style="max-width:1024px">
       <h2 class="w3-wide w3-center">LEATHER</h2>
 
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+      <!-- <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom card1">
           <img src="marissa-grootes-D4jRahaUaIc-unsplash.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
         </div>
@@ -241,7 +412,56 @@ body {
         <div class="w3-third w3-margin-bottom card3">
           <img src="marissa-grootes-D4jRahaUaIc-unsplash.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
         </div>
+      </div> -->
+     
+      <div class="container mt-5">
+        <div class="row res">
+             <div class="col-md-4 card1">    
+                <div class="card mt-5  ">
+                    <img src="charlesdeluvio-Ghrv69I9mPw-unsplash.jpg"  alt="Bag 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Stylish Bag</h3>
+                        <p>$49.99</p>
+                        <button class="add-to-cart" data-name="Stylish Bag" data-price="49.99" data-image="charlesdeluvio-Ghrv69I9mPw-unsplash.jpg">Add to Cart</button>
+                    </div>
+                </div>
+            </div>     
+            <div class="col-md-4 card2">
+                <div class="card mt-5 ">
+                    <img src="debagni-sarkhel-nhrhxaDTV3Q-unsplash.jpg"  alt="Bag 2" class="card-image">
+                    <div class="card-content">
+                        <h3>Elegant Bag</h3>
+                        <p>$59.99</p>
+                        <button class="add-to-cart" data-name="Elegant Bag" data-price="59.99" data-image="debagni-sarkhel-nhrhxaDTV3Q-unsplash.jpg">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 card3">
+                <div class="card mt-5 ">
+                    <img src="charlesdeluvio-Ghrv69I9mPw-unsplash.jpg"  alt="Bag 3" class="card-image">
+                    <div class="card-content">
+                        <h3>Casual Bag</h3>
+                        <p>$39.99</p>
+                        <button class="add-to-cart" data-name="Casual Bag" data-price="39.99" data-image="charlesdeluvio-Ghrv69I9mPw-unsplash.jpg">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>   
       </div>
+
+
+          <!-- The Modal -->
+      <div id="cartModal" class="modal">
+        <div class="modal-content" style="color: #000;">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">Total: $<span id="cartTotal">0.00</span></div>
+        </div>
+    </div>
+
+ 
     </div>
   </div>
 
@@ -345,9 +565,9 @@ body {
 
 
 <span>
-  <a href="#"> <i class="fa fa-facebook" style="font-size:30px; color: blue; background-color:white; padding: 6px 15px; border-radius: 12%; "> </i> </a> 
-  <a href="#"> <i class="fa fa-twitter" style="font-size:30px; color: skyblue; background-color:white; padding: 6px 15px; border-radius: 12%; "> </i> </a>
-  <a href="#"> <i class="fa fa-youtube" style="font-size:30px; color:red; background-color:white; padding: 6px 15px; border-radius: 12%; "> </i> </a>
+  <a href="#"> <i class="fa fa-facebook"> </i> </a> 
+  <a href="#"> <i class="fa fa-twitter"> </i> </a>
+  <a href="#"> <i class="fa fa-youtube"> </i> </a>
 
 </span>
                 </div>
@@ -378,12 +598,13 @@ body {
 $(document).ready(function() {
   $(window).scroll(function() {
     if ($(document).scrollTop() > 50) {
-      $("w3-top").addClass("test");
+      $(".w3-top").addClass("test");
     } else {
-      $("w3-top").removeClass("test");
+      $(".w3-top").removeClass("test");
     }
   });
 });
+
 
 
 var tl = gsap.timeline();
@@ -509,19 +730,19 @@ gsap.from(".card6",{
 
 
 
-gsap.from(".fanimate h4, span",{
-  opacity: 0,
-  transform: "translateY(100%)",
-  duration:3,
-  stagger:0.75,
-  scrollTrigger:{
-    trigger: ".footer",
-    start: "top 80%",
-    end: "top 70%",
-    // markers:true,
-    scrub: 2
-  }
-});
+// gsap.from(".fanimate h4, span",{
+//   opacity: 0,
+//   transform: "translateY(100%)",
+//   duration:3,
+//   stagger:0.75,
+//   scrollTrigger:{
+//     trigger: ".footer",
+//     start: "top 80%",
+//     end: "top 70%",
+//     markers:true,
+//     scrub: 2
+//   }
+// });
 
 gsap.from(".fcontact ",{
   opacity: 0,
@@ -572,17 +793,6 @@ gsap.from(".abag img ",{
 
   }
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -644,6 +854,70 @@ function myFunction() {
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
+}
+
+
+let cart = [];
+
+// Add to cart functionality
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = parseFloat(button.getAttribute('data-price'));
+        const itemImage = button.getAttribute('data-image');
+        addToCart(itemName, itemPrice, itemImage);
+    });
+});
+
+function addToCart(name, price, image) {
+    const item = { name, price, image };
+    cart.push(item);
+    updateCartCount();
+    alert('Item added to cart!');
+}
+
+function updateCartCount() {
+    document.querySelector('.cart-count').textContent = cart.length;
+}
+
+// Modal functionality
+const modal = document.getElementById("cartModal");
+const btn = document.querySelector('.cart');
+const span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    displayCartItems();
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cartItems');
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+        cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <h4>${item.name}</h4>
+                    <p>Price: $${item.price.toFixed(2)}</p>
+                    <p>Quantity: 1</p>
+                </div>
+            </div>
+        `;
+    });
+    document.getElementById('cartTotal').textContent = total.toFixed(2);
 }
 
 
